@@ -1,4 +1,4 @@
-const port = process.env.PORT || 8888;
-const host = process.env.HOST || 'localhost';
-
-export { port, host };
+module.exports = {
+    port: process.env.PORT || 8888,
+    host: process.env.HOST || 'localhost',
+};

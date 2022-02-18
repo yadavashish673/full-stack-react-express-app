@@ -5,15 +5,17 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run server",
-    "build": "webpack --mode=production",
+    "build": "webpack --mode=production && npm run build-server",
     "dev": "webpack-dev-server --open",
-    "server": "cross-env NODE_ENV=production babel-node src/server/server",
+    "build-server": "babel -d ./src/server-build ./src/server -s",
+    "server": "cross-env NODE_ENV=production node src/server-build/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.17.3",
     "@babel/core": "^7.17.5",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
