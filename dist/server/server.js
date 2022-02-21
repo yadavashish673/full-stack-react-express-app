@@ -6,7 +6,7 @@ var _cors = _interopRequireDefault(require("cors"));
 
 var _bodyParser = _interopRequireDefault(require("body-parser"));
 
-var _config = require("../config");
+var _config = require("./config");
 
 var _path = _interopRequireDefault(require("path"));
 
@@ -21,7 +21,7 @@ app.use((0, _cors.default)(), _bodyParser.default.urlencoded({
 }), _bodyParser.default.json());
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(_express.default.static(_path.default.resolve(__dirname, '../../dist')));
+  app.use(_express.default.static(_path.default.resolve(__dirname, '../../dist/client')));
   app.get('/*', (req, res) => {
     res.sendFile(_path.default.resolve('index.html'));
   });
